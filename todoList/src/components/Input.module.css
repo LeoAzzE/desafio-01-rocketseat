@@ -29,6 +29,7 @@
     height: 3.25rem;
     border-radius: 8px;
     background-color: var(--blue-dark);
+    cursor: pointer;
 }
 
 .formTask > button:hover {

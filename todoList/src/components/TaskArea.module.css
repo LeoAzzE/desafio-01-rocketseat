@@ -1,0 +1,81 @@
+.wrapper {
+    flex-direction: column;
+    height: auto;
+    font-family: inter;
+    width: 46rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.firstContent {
+    color: var(--blue);
+}
+
+.secondContent {
+    color: var(--purple);
+}
+
+.tasksCounter {
+font-size: 0.85rem;
+font-family: inter;
+width: 46rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.numberTask {
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.contentTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    color: white;
+    border-radius: 50%;
+    background-color: var(--gray-400);
+    width: 1.5rem;
+    height: 1.1rem;
+    padding: 2px 8px;
+}
+
+.tasksOn {
+margin-top: 1.5rem;
+}
+
+.taskList {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    margin-top: 2rem;
+    max-width: 46rem;
+    height: auto;
+    border-top: 1px solid var(--gray-400);
+    padding: 4rem 1.5rem;
+    text-align: center;
+    flex-direction: column;
+}
+
+.messages {
+    margin-top: 1rem ;
+}
+
+.text1 {
+    font-weight: 600;
+    color: var(--gray-300);
+}
+
+.text2 {
+    font-weight: 100;
+    color: var(--gray-300);
+}

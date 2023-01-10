@@ -1,10 +1,22 @@
 import styles from './Input.module.css'
 import plus from '../assets/plus.svg'
+import { Tasks } from './Tasks'
+import { useState } from 'react'
+
 
 export function Input() {
-    return(
-        <form className={styles.formTask}>
-        <textarea placeholder='Adicione uma nova tarefa'>
+    function handleCreateNewTask() {
+        event.preventDefault()
+        
+    }
+
+    function handleNewTaskChange() {
+
+    }
+
+    return(  
+        <form onSubmit={handleCreateNewTask} className={styles.formTask}>
+        <textarea onChange={handleNewTaskChange} name = "task" placeholder='Adicione uma nova tarefa'>
             
         </textarea>
         <button type="submit">
@@ -13,6 +25,6 @@ export function Input() {
                 <img src={plus} alt="plus" />
             </div>
         </button>
-    </form>
+    </form>  
     )
 }
