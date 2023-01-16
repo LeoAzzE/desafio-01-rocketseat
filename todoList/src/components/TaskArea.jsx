@@ -14,9 +14,15 @@ export function TaskArea() {
 
    function handleCreateNewTask() {
         event.preventDefault()
-        const value = event.target.task.value
-        setTask([...tasks, value])
-        setNewValue('');
+        setTask ([
+            {
+                id: uuidv4(),
+                isCompleted: false,
+                content: valueText,
+            },
+            ...tasks
+        ])
+        setNewValue('')
    }
 
    function handleNewTaskChange() {
@@ -26,9 +32,20 @@ export function TaskArea() {
 
    function deleteTask(task) {
         const filterListWithoutDeletedOne = tasks.filter(tasks =>{
-            return tasks !== task
+            return tasks.id !== task.id
         })
         setTask(filterListWithoutDeletedOne)
+   }
+
+   function completedTask() {
+    const taskWhithoutUpdate = tasks.map(task => {
+        if (task.id === taskToConcluid.id) {
+          return taskToConcluid
+        } else {
+          return task
+        } 
+   })
+   setTask(taskWhithoutUpdate)
    }
 
     return (
@@ -61,7 +78,12 @@ export function TaskArea() {
             </section>
             <main className={styles.tasksOn}>
                {tasks.map(task => {
-                    return <Tasks completedTask key={uuidv4()} content={task} deleteTask={deleteTask}/>
+                    return <Tasks 
+                    completedTask 
+                    propsTask={task} 
+                    key={task.id} 
+                    content={task.content} 
+                    deleteTask={deleteTask}/>
                })}
                
             </main>

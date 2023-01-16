@@ -3,11 +3,13 @@ import thrash from '../assets/thrash.svg'
 import check from '../assets/check.svg'
 import uncheck from '../assets/unchecked.svg'
 
-let unchecked = uncheck;
-
-export function Tasks({content, deleteTask}) {
+export function Tasks({content, deleteTask ,propsTask}) {
     function handleDeleteTask() {
-        deleteTask(content)
+        deleteTask(propsTask)
+    }
+
+    function handleCompletedTask() {
+        
     }
 
     return(
@@ -19,7 +21,7 @@ export function Tasks({content, deleteTask}) {
                 </div>
             </main>
             <div>
-                <img src={check} alt="check" />
+                <img onClick={handleCompletedTask} src={uncheck}/>
             </div>
             
             <div className={styles.contentTask}>
