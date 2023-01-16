@@ -1,14 +1,58 @@
-import styles from './TaskArea.module.css'
-import { Tasks } from './Tasks'
-import Clipboard from '../assets/Clipboard.svg'
+import styles from './TaskArea.module.css';
+import { Tasks } from './Tasks';
+import Clipboard from '../assets/Clipboard.svg';
+import { useState } from 'react';
+import plus from '../assets/plus.svg';
+import { v4 as uuidv4 } from 'uuid';
 
 export function TaskArea() {
+    const [tasks, setTask] = useState([
+        
+    ])
+
+    const [valueText, setNewValue] = useState('')
+
+   function handleCreateNewTask() {
+        event.preventDefault()
+        const value = event.target.task.value
+        setTask([...tasks, value])
+        setNewValue('');
+   }
+
+   function handleNewTaskChange() {
+    setNewValue(event.target.value)
+
+   }
+
+   function deleteTask(task) {
+        const filterListWithoutDeletedOne = tasks.filter(tasks =>{
+            return tasks !== task
+        })
+        setTask(filterListWithoutDeletedOne)
+   }
+
     return (
+        <div>
+        <form onSubmit={handleCreateNewTask} className={styles.formTask}>
+        <textarea required
+            name = "task"
+            placeholder='Adicione uma nova tarefa'
+            onChange={handleNewTaskChange}
+            value={valueText}
+            >
+        </textarea>
+        <button type="submit">
+            <div className={styles.boxButton}>
+                <div className={styles.create}>Criar</div>
+                <img src={plus} alt="plus" />
+            </div>
+        </button>
+    </form>  
         <main className={styles.wrapper}>
             <section className={styles.tasksCounter}>
                 <div className={styles.numberTask}>
                     <div className={styles.firstContent}>Tarefas criadas</div>
-                    <div className={styles.contentTask}>0</div>
+                    <div className={styles.contentTask}>{tasks.length}</div>
                 </div>
                 <div className={styles.numberTask}>
                     <div className={styles.secondContent}>Concluídas</div>
@@ -16,9 +60,10 @@ export function TaskArea() {
                 </div>
             </section>
             <main className={styles.tasksOn}>
-                <Tasks/>
-                <Tasks/>
-                <Tasks/>
+               {tasks.map(task => {
+                    return <Tasks completedTask key={uuidv4()} content={task} deleteTask={deleteTask}/>
+               })}
+               
             </main>
             <main className={styles.taskList}>
                 <div>
@@ -31,5 +76,6 @@ export function TaskArea() {
                 
             </main>
         </main>
+        </div>
     )
 }

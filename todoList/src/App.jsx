@@ -1,15 +1,13 @@
 import { Header } from './components/Header'
-import { Input } from './components/Input'
 import { TaskArea } from './components/TaskArea'
 import './global.css';
-import styles from './App.module.css'
+//import { v4 as uuid } from 'uuid';
 
 
 export function App() {
   return (
     <div>
       <Header />
-      <Input />
       <TaskArea />
     </div>
   )

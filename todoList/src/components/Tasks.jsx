@@ -1,10 +1,14 @@
 import styles from './Tasks.module.css'
 import thrash from '../assets/thrash.svg'
 import check from '../assets/check.svg'
+import uncheck from '../assets/unchecked.svg'
 
+let unchecked = uncheck;
 
-
-export function Tasks() {
+export function Tasks({content, deleteTask}) {
+    function handleDeleteTask() {
+        deleteTask(content)
+    }
 
     return(
         <div className={styles.container}>
@@ -19,10 +23,10 @@ export function Tasks() {
             </div>
             
             <div className={styles.contentTask}>
-                sadasdsdaasdsadiasdkopsik
+                {content}
             </div>
             <div>
-                <img src={thrash} />
+                <img onClick={handleDeleteTask} src={thrash} />
             </div>
         </div>
     )
