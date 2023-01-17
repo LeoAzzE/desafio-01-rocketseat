@@ -37,16 +37,16 @@ export function TaskArea() {
         setTask(filterListWithoutDeletedOne)
    }
 
-   function completedTask() {
-    const taskWhithoutUpdate = tasks.map(task => {
-        if (task.id === taskToConcluid.id) {
-          return taskToConcluid
-        } else {
-          return task
-        } 
-   })
-   setTask(taskWhithoutUpdate)
-   }
+    function taskCompleted(Tasks) {
+        const tasksCompleted = tasks.map(task => {
+            if (task.id === Tasks.id) {
+              return Tasks
+            } else {
+              return task
+            }
+        })
+        setTask(tasksCompleted)
+    }
 
     return (
         <div>
@@ -79,7 +79,7 @@ export function TaskArea() {
             <main className={styles.tasksOn}>
                {tasks.map(task => {
                     return <Tasks 
-                    completedTask 
+                    taskCompleted = {taskCompleted} 
                     propsTask={task} 
                     key={task.id} 
                     content={task.content} 
