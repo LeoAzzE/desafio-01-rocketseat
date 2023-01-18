@@ -48,6 +48,10 @@ export function TaskArea() {
         setTask(tasksCompleted)
     }
 
+    const checkIfTaskIsComplete = tasks.filter(task => {
+        return task.isCompleted === true
+    })
+
     return (
         <div>
         <form onSubmit={handleCreateNewTask} className={styles.formTask}>
@@ -69,11 +73,11 @@ export function TaskArea() {
             <section className={styles.tasksCounter}>
                 <div className={styles.numberTask}>
                     <div className={styles.firstContent}>Tarefas criadas</div>
-                    <div className={styles.contentTask}>{tasks.length}</div>
+                    <div className={styles.contentTaskOne}>{tasks.length}</div>
                 </div>
                 <div className={styles.numberTask}>
                     <div className={styles.secondContent}>Concluídas</div>
-                    <div className={styles.contentTask}>0</div>
+                    <div className={styles.contentTaskTwo}>{checkIfTaskIsComplete.length} de {tasks.length}</div>
                 </div>
             </section>
             <main className={styles.tasksOn}>
