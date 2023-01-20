@@ -80,7 +80,7 @@ export function TaskArea() {
                     <div className={styles.contentTaskTwo}>{checkIfTaskIsComplete.length} de {tasks.length}</div>
                 </div>
             </section>
-            <main className={styles.tasksOn}>
+            <main className={styles.taksOn}>
                {tasks.map(task => {
                     return <Tasks 
                     taskCompleted = {taskCompleted} 
@@ -91,7 +91,7 @@ export function TaskArea() {
                })}
                
             </main>
-            <main className={styles.taskList}>
+            <main className={tasks.length === 0 ? styles.taskListOn : styles.taskListOff}>
                 <div>
                     <img src={Clipboard} alt="logoTask" />
                 </div>

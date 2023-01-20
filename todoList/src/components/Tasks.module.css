@@ -66,3 +66,12 @@
     text-decoration: line-through;
     color: var(--gray-300);
 }
+
+@media (max-width: 780px) {
+
+.container {
+    width: 100%;
+    word-break: keep-all;
+    }
+
+}

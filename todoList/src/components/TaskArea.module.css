@@ -65,7 +65,7 @@ align-items: center;
 margin-top: 1.5rem;
 }
 
-.taskList {
+.taskListOff {
     display: none;
     justify-content: center;
     align-items: center;
@@ -78,6 +78,21 @@ margin-top: 1.5rem;
     text-align: center;
     flex-direction: column;
 }
+
+.taskListOn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    margin-top: 2rem;
+    max-width: 46rem;
+    height: auto;
+    border-top: 1px solid var(--gray-400);
+    padding: 4rem 1.5rem;
+    text-align: center;
+    flex-direction: column;
+}
+
 
 .messages {
     margin-top: 1rem ;
@@ -143,9 +158,24 @@ margin-top: 1.5rem;
     font-weight: 500;
 }
 
-
 .create {
     font-size: 0.9rem;
     line-height: 0.8rem;
 }
+
+@media (max-width: 780px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .tasksCounter {
+        width: 100%;
+    }
+
+    .boxButton {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    }
 
